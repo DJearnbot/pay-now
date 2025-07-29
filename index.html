@@ -93,6 +93,30 @@
       background: #222;
     }
 
+    #toast {
+      visibility: hidden;
+      min-width: 160px;
+      background-color: #323232;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 10px 20px;
+      position: fixed;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      opacity: 0;
+      font-size: 14px;
+      transition: opacity 0.3s ease, bottom 0.3s ease;
+    }
+
+    #toast.show {
+      visibility: visible;
+      opacity: 1;
+      bottom: 80px;
+    }
+
     @media (max-width: 480px) {
       .sheet {
         padding: 20px 12px;
@@ -105,17 +129,17 @@
     }
   </style>
 
-<script>
-  function copyUPI() {
-    navigator.clipboard.writeText("8287978793@ptyes").then(() => {
-      const toast = document.getElementById("toast");
-      toast.classList.add("show");
-      setTimeout(() => {
-        toast.classList.remove("show");
-      }, 3000);
-    });
-  }
-</script>
+  <script>
+    function copyUPI() {
+      navigator.clipboard.writeText("8287978793@ptyes").then(() => {
+        const toast = document.getElementById("toast");
+        toast.classList.add("show");
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 3000);
+      });
+    }
+  </script>
 </head>
 <body>
 
@@ -134,6 +158,8 @@
       <button class="copy-btn" onclick="copyUPI()">📋 Copy UPI ID</button>
     </div>
   </div>
+
+  <div id="toast">📋 UPI ID Copied</div>
 
 </body>
 </html>
