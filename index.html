@@ -4,11 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pay ₹999 - Select UPI App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
-      background: #f2f2f2;
+      background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
     }
 
     .sheet {
@@ -16,11 +18,13 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: white;
-      border-radius: 12px 12px 0 0;
-      box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
-      padding: 20px;
+      background: #ffffff;
+      border-radius: 16px 16px 0 0;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+      padding: 24px 16px;
       animation: slideUp 0.3s ease-out;
+      max-width: 450px;
+      margin: auto;
     }
 
     @keyframes slideUp {
@@ -29,23 +33,28 @@
     }
 
     h2 {
-      margin-top: 0;
+      margin: 0 0 20px;
       text-align: center;
-      font-size: 18px;
+      font-size: 20px;
     }
 
     .btn {
       display: block;
       margin: 10px auto;
-      padding: 12px;
+      padding: 14px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 16px;
       width: 90%;
       color: white;
-      cursor: pointer;
+      font-weight: 600;
       text-align: center;
       text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.02);
     }
 
     .gpay { background: #4285F4; }
@@ -55,27 +64,47 @@
 
     .fallback {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 25px;
       font-size: 14px;
+      color: #333;
     }
 
     .qr-img {
       width: 200px;
-      margin: 10px auto;
+      margin: 12px auto;
       display: block;
+      border-radius: 12px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     }
 
     .copy-btn {
-      background: #555;
+      background: #444;
       color: #fff;
-      padding: 6px 12px;
-      border-radius: 5px;
+      padding: 8px 16px;
+      border-radius: 6px;
       cursor: pointer;
       font-size: 14px;
       border: none;
-      margin-top: 8px;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: #222;
+    }
+
+    @media (max-width: 480px) {
+      .sheet {
+        padding: 20px 12px;
+        border-radius: 12px 12px 0 0;
+      }
+      .btn {
+        font-size: 15px;
+        padding: 12px;
+      }
     }
   </style>
+
   <script>
     function copyUPI() {
       navigator.clipboard.writeText("8287978793@ptyes").then(() => {
@@ -97,7 +126,7 @@
     <div class="fallback">
       <p>📷 Can't open UPI app? Scan this QR:</p>
       <img class="qr-img" src="qr.jpg" alt="UPI QR Code" />
-      <p>Or use UPI ID: <b>8287978793@ptyes</b></p>
+      <p>Or use UPI ID:<br><b>8287978793@ptyes</b></p>
       <button class="copy-btn" onclick="copyUPI()">📋 Copy UPI ID</button>
     </div>
   </div>
