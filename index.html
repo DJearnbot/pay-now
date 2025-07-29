@@ -105,13 +105,17 @@
     }
   </style>
 
-  <script>
-    function copyUPI() {
-      navigator.clipboard.writeText("8287978793@ptyes").then(() => {
-        alert("UPI ID copied!");
-      });
-    }
-  </script>
+<script>
+  function copyUPI() {
+    navigator.clipboard.writeText("8287978793@ptyes").then(() => {
+      const toast = document.getElementById("toast");
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    });
+  }
+</script>
 </head>
 <body>
 
